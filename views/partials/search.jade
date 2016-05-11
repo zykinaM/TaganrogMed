@@ -1,0 +1,38 @@
+extends layout
+
+block body
+	.container.container-jumborton 
+		.jumbotron
+			h1 ТаганрогМед
+			.input-group 
+				input.form-control(type='text', placeholder='Введите фамилию врача/специализацию/услугу')
+				span.input-group-btn
+					button.btn.btn-default(type='button') Поиск
+	.container
+		.row
+			.col-sm-8.col-sm-offset-2.text-center
+				h3
+					strong  Лучшие специалисты
+		.row
+			.col-md-4
+				.panel.panel-default.panel-profile
+					.panel-heading
+					.panel-body
+						img.foto-img.panel-profile-img(src='img/med-ico.png')
+						h5.panel-title Доктор Айболит 
+						p Врач
+						p Оценка 5.0
+						p Стаж 3года
+						p "АфрикаДокторс"
+						p Стоимость 1000руб
+						a.btn.btn-primary-outline.btn-sm  Подробнее...
+
+
+		div(ng-view)
+
+	script(src='js/lib/angular/angular.js')
+	script(src='js/app.js')
+	script(src='js/services.js')
+	script(src='js/controllers.js')
+	script(src='js/filters.js')
+	script(src='js/directives.js')
