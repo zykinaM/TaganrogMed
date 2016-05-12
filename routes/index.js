@@ -23,6 +23,11 @@ exports.index_clinic = function(req, res){
   res.render('index_clinic');
 };
 
+exports.edit_clinic = function(req, res){
+  res.render('edit_clinic');
+};
+
+
 exports.partials = function (req, res) {
   var name = req.params.name;
   res.render('partials/' + name);

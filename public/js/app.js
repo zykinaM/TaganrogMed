@@ -38,6 +38,9 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives'])
       when('/index_clinic', {
         templateUrl: 'index_clinic'
       }).
+      when('/edit_clinic', {
+        templateUrl: 'edit_clinic'
+      }).
 
 
       

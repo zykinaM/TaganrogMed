@@ -8,7 +8,7 @@ block body
 				.input-group
 					span.input-group-addon Поиск
 					input#filter.form-control(type='filter', placeholder='Поиск...')
-				table.table-responsive.table-striped
+				table.table.table-striped
 					thead
 						tr
 							th Номер записи
@@ -17,6 +17,7 @@ block body
 							th Специалист
 							th Пациент
 							th Телефон
+							th Статус
 					tbody.searchable
 						tr
 							td 001
@@ -25,6 +26,8 @@ block body
 							td Иванов И.И. (Стоматолог)
 							td Пупкин
 							td 11111
+							td
+								input(type="checkbox")
 						tr
 							td 345
 							td 12/01/2016
@@ -32,6 +35,8 @@ block body
 							td Петров И.И. (Кардиолог)
 							td Мария
 							td 22222
+							td
+								input(type="checkbox")
 						tr
 							td 444
 							td 12/01/2016
@@ -39,6 +44,8 @@ block body
 							td Сидоров И.И. (Окулист)
 							td ымывмва
 							td 44444
+							td
+								input(type="checkbox")
 						tr
 							td 221
 							td 12/01/2016
@@ -46,12 +53,14 @@ block body
 							td Петечкин И.И. (Массажист)
 							td некто
 							td 66666
+							td
+								input(type="checkbox")
 			.col-sm-4
 				a.btn.btn-lg.btn-success.btn-block.btn_clinic(type='submit' href='index') 
 					.text_wrap Записать пациента на прием
 				a.btn.btn-lg.btn-info.btn-block.btn_clinic(type='submit' href='registr_clinic') 					
 					.text_wrap Редактирование общей информации о клинике
-				a.btn.btn-lg.btn-primary.btn-block.btn_clinic(type='submit' href='registr_clinic') 
+				a.btn.btn-lg.btn-primary.btn-block.btn_clinic(type='submit' href='edit_clinic') 
 					.text_wrap Редактирование информации о специалистах
 
 	script(src='js/lib/angular/angular.js')
