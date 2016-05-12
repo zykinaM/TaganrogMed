@@ -1,0 +1,143 @@
+extends layout_clinic
+
+block body
+
+	.container
+		.row
+			.col-sm-8
+				.input-group
+					span.input-group-addon Поиск
+					input#filter.form-control(type='filter', placeholder='Поиск...')
+				table.table.table-striped
+					thead
+						tr
+							th Номер 
+							th ФИО 
+							th Специализация
+							th  
+					tbody.searchable
+						tr
+							td 1
+							td Иванов И.И.
+							td Стоматолог
+							td
+								button.btn.btn-success.btn-xs(type='button')
+									span.glyphicon.glyphicon-pencil(aria-hidden='true')
+								button.btn.btn-danger.btn-xs(type='button')
+									span.glyphicon.glyphicon-remove(aria-hidden='true')
+
+						tr
+							td 2
+							td Петров И.И.
+							td Кардиолог
+							td
+								button.btn.btn-success.btn-xs(type='button')
+									span.glyphicon.glyphicon-pencil(aria-hidden='true')
+								button.btn.btn-danger.btn-xs(type='button')
+									span.glyphicon.glyphicon-remove(aria-hidden='true')
+						tr
+							td 3
+							td Сидоров И.И.
+							td Окулист
+							td
+								button.btn.btn-success.btn-xs(type='button')
+									span.glyphicon.glyphicon-pencil(aria-hidden='true')
+								button.btn.btn-danger.btn-xs(type='button')
+									span.glyphicon.glyphicon-remove(aria-hidden='true')
+						tr
+							td 4
+							td Петечкин И.И. 
+							td Массажист
+							td
+								button.btn.btn-success.btn-xs(type='button')
+									span.glyphicon.glyphicon-pencil(aria-hidden='true')
+								button.btn.btn-danger.btn-xs(type='button')
+									span.glyphicon.glyphicon-remove(aria-hidden='true')
+		a.btn.btn-lg.btn-success(href='#', data-target="#addModal", data-toggle='modal') 
+					.text_wrap Добавить               
+						span.glyphicon.glyphicon-plus(aria-hidden='true')
+		
+	
+			#addModal.modal.fade(tabindex="-1", role="dialog", aria-hidden="true")
+				.modal-dialog
+					.modal-content
+						.modal-header
+							button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+							h4.modal-title Добавление нового специалиста
+						.modal-body
+							form.form-horizontal
+								.form-group
+									label.control-label.col-sm-3(for='Name') ФИО:
+									.col-sm-9
+										input#Name.form-control(type='text', placeholder='Введите ФИО')
+								.form-group
+									label.control-label.col-sm-3(for='specialization') Специализация:
+									.col-sm-9
+										input#special.form-control(type='text', placeholder='Введите специализацию')
+								.form-group
+									label.control-label.col-sm-3(for='experience') Стаж:
+									.col-sm-9
+										input#experience.form-control(type='text',  placeholder='Введите стаж')
+								.form-group
+									label.control-label.col-sm-3(for='cost') Стоимость приема:
+									.col-sm-9
+										input#cost.form-control(type='text', placeholder='1000руб')
+								.form-group
+									label.control-label.col-sm-3(for='schedule') График:
+								.form-group
+									.checkbox.col-sm-2
+										label
+											input#mo(type='checkbox')
+											|ПН
+										label
+											input#tu(type='checkbox')
+											|ВТ
+										label
+											input#we(type='checkbox')
+											|СР
+										label
+											input#th(type='checkbox')
+											|ЧТ
+										label
+											input#fr(type='checkbox')
+											|ПТ
+										label
+											input#sa(type='checkbox')
+											|СБ
+										label
+											input#su(type='checkbox')
+											|ВС
+								
+									.col-sm-10
+										.col-sm-12
+											label.control-label.col-sm-1  С
+											.col-sm-4
+												input#st_time.form-control(type='time')
+											label.control-label.col-sm-1  до
+											.col-sm-4
+												input#end_time.form-control(type='time')
+										.col-sm-12
+											label.control-label.col-sm-4 Прием каждые
+											.col-sm-4
+												input#period.form-control(type='time')
+											label.control-label.col-sm-1  мин
+										.col-sm-12
+											label.control-label.col-sm-3 Обед  с
+											.col-sm-4
+												input#st_lunch.form-control(type='time')
+											label.control-label.col-sm-1  до
+											.col-sm-4
+												input#end_lunch.form-control(type='time')
+
+						.modal-footer
+							button.btn.btn-default(type='button', data-dismiss='modal') Закрыть
+							button.btn.btn-primary(type='button') Сохранить изменения		
+
+
+
+	script(src='js/lib/angular/angular.js')
+	script(src='js/app.js')
+	script(src='js/services.js')
+	script(src='js/controllers.js')
+	script(src='js/filters.js')
+	script(src='js/directives.js')
