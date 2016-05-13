@@ -11,6 +11,10 @@ exports.search = function(req, res){
   res.render('search');
 };
 
+exports.record = function(req, res){
+  res.render('record');
+};
+
 exports.auth_clinic = function(req, res){
   res.render('auth_clinic');
 };

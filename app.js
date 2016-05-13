@@ -36,6 +36,7 @@ app.configure('production', function(){
 
 app.get('/', routes.index);
 app.get('/search', routes.search);
+app.get('/record', routes.record);
 app.get('/auth_clinic', routes.auth_clinic);
 app.get('/registr_clinic', routes.registr_clinic);
 app.get('/index_clinic', routes.index_clinic);

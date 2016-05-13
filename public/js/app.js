@@ -29,6 +29,9 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives'])
       when('/search', {
         templateUrl: 'search'
       }).
+      when('/record', {
+        templateUrl: 'record'
+      }).
       when('/auth_clinic', {
         templateUrl: 'auth_clinic'
       }).
