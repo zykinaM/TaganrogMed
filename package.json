@@ -1,9 +1,12 @@
 {
-    "name": "application-name"
-  , "version": "0.0.1"
-  , "private": true
-  , "dependencies": {
-      "express": "2.5.10"
-    , "jade": ">= 0.0.1"
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "2.5.10",
+    "jade": ">= 0.0.1",
+    "mysql": "^2.10.2",
+    "pg": "^4.5.5",
+    "sequelize": "^3.23.3"
   }
 }
