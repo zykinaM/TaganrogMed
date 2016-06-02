@@ -58,3 +58,13 @@ function DeletePostCtrl($scope, $http, $location, $routeParams) {
     $location.url('/');
   };
 }
+
+function TestCtrl($scope, $http) {
+  $http.get('/api/test').
+    success(function(data, status, headers, config) {
+      console.log("### data is:", data);
+      $scope.testData = data.posts;
+    }).error(function(err){
+      console.log("### err", err);
+    });
+}

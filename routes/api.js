@@ -4,6 +4,16 @@
 
 // For a real app, you'd make database requests here.
 // For this example, "data" acts like an in-memory "database"
+
+var models = require("../models");
+
+exports.get_test = function(req, res) {
+  models.Test.findAll().then(function(tests){
+      console.log("### res.json(tests)", res.json(tests))
+      res.json(tests);
+  });
+};
+
 var data = {
   "posts": [
     {

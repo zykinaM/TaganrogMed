@@ -31,6 +31,11 @@ exports.edit_clinic = function(req, res){
   res.render('edit_clinic');
 };
 
+//test data base
+
+exports.test_page = function(req, res){
+	res.render('test_page');
+}
 
 exports.partials = function (req, res) {
   var name = req.params.name;
