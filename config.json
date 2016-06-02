@@ -1,0 +1,18 @@
+{
+	"development": {
+		"username": "DATABASE_USERNAME",
+		"password": "DATABASE_PASSWORD",
+		"database": "DATABASE_NAME",
+		"host": "127.0.0.1",
+		"dialect": "postgres",
+		"port": "DATABASE_PORT"
+	},
+	"production": {
+		"username": "bd1a39cbb9bbc2",
+		"password": "ae18650b",
+		"database": "heroku_e80602e957e88dc",
+		"host": "eu-cdbr-west-01.cleardb.com",
+		"dialect": "mysql",
+		"port": "3306"
+	}
+}
