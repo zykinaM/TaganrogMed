@@ -5,7 +5,7 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives'])
   config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider.
       when('/', {
-        templateUrl: 'partials/index',
+        templateUrl: 'index',
         controller: IndexCtrl
       }).
       when('/addPost', {
@@ -43,6 +43,10 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives'])
       }).
       when('/edit_clinic', {
         templateUrl: 'edit_clinic'
+      }).
+      when('/test_page', {
+        templateUrl: 'test_page',
+        controller: TestCtrl
       }).
 
 

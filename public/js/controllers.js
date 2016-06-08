@@ -7,6 +7,15 @@ function IndexCtrl($scope, $http) {
     success(function(data, status, headers, config) {
       $scope.posts = data.posts;
     });
+
+  console.log("### TestCtrl");
+  $http.get('/api/tests').
+    success(function(data, status, headers, config) {
+      console.log("### data is:", data);
+      $scope.testData = data.posts;
+    }).error(function(err){
+      console.log("### err", err);
+    });
 }
 
 function AddPostCtrl($scope, $http, $location) {
@@ -55,6 +64,18 @@ function DeletePostCtrl($scope, $http, $location, $routeParams) {
   };
 
   $scope.home = function () {
+    console.log("###")
     $location.url('/');
   };
+}
+
+function TestCtrl($scope, $http) {
+  console.log("### TestCtrl");
+  $http.get('/api/tests').
+    success(function(data, status, headers, config) {
+      console.log("### data is:", data);
+      $scope.testData = data.posts;
+    }).error(function(err){
+      console.log("### err", err);
+    });
 }
