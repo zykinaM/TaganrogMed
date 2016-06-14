@@ -1,0 +1,118 @@
+ 
+extends layout
+
+block body
+
+	p Стоматолог-Иванов-Иванов И.И.
+			form.form-horizontal.col-sm-8
+				.col-sm-2
+					img.foto-img.panel-profile-img(src='img/med-ico.png')
+				.col-sm-10
+					label.col-sm-12 Иванов И.И.
+					label.col-sm-12 стоматолог
+					label.col-sm-12 Оценка 5.0
+					label.col-sm-12 Стаж: 3 года
+					label.col-sm-12 Медицинское учреждение: "БиоРомашка"
+					label.col-sm-12 Стоимость приема: 1000руб
+
+				form.form-horizontal.col-sm-12
+					.form-group
+						label.col-sm-4 Оставить отзыв
+					.form-group
+						label.col-sm-2(for='name_resp') Имя:
+						.col-sm-7
+							input#nam_path.form-control(type='text', placeholder='Имя')
+					.form-group
+						label.control-label.col-sm-5(for='mark_spec') Оценка специалиста:
+						.col-sm-7
+							input#mark_spec.rating(type='number', min='1', max='5', data-size='xs')
+					.form-group
+						label.control-label.col-sm-5(for='mark_clinic') Оценка клиники:
+						.col-sm-7
+							input#mark_clinic.rating(type='number', min='1', max='5', data-size='xs')
+					.form-group
+						label.control-label.col-sm-5(for='comment') Комментарии:
+						.col-sm-7
+							textarea#comment.form-control(rows='4', placeholder='Текст комментария...')
+					.form-group
+					.col-sm-7
+						a.btn.btn-primary(type='submit') Опубликовать
+
+				
+			form.form-horizontal.form_record.col-sm-4
+				.form-group
+					label.col-sm-4 Выбор даты
+					.col-sm-8
+						#datetimepicker1.input-group.date
+							input.form-control(type='text')
+							span.input-group-addon
+								span.glyphicon.glyphicon-calendar(onclick='date_rec()')
+
+				.form-group
+					label.control-label.col-sm-3(for='Name') Выбор времени
+					.col-sm-9
+						.radio
+							label
+								input#mo(type='radio', name='optradio')
+								|8-00
+							label
+								input#tu(type='radio', name='optradio')
+								|8-30
+							label
+								input#we(type='radio', name='optradio')
+								|9-45
+
+				.form-group
+					label.control-label.col-sm-5(for='name_path') Введите ваше имя:
+					.col-sm-7
+						input#nam_path.form-control(type='text', placeholder='Имя')
+				.form-group
+					label.control-label.col-sm-5(for='inputEmail') Email для оповещения:
+					.col-sm-7
+						input#inputEmail.form-control(type='email', placeholder='Email')
+				.form-group
+					label.control-label.col-sm-5(for='phoneNumber') Телефон для связи с клиникой:
+					.col-sm-7
+						input#phoneNumber.form-control(type='tel', placeholder='8ХХХХХХХХХХХ')
+				.form-group
+					.col-sm-7
+						a.btn.btn-primary(type='submit', value='Записаться',href='#', data-target="#recModal", data-toggle='modal') Записаться
+
+
+
+
+
+			.container.col-sm-12
+				p Отзывы
+							.panel.panel-default.panel-profile
+								.panel-heading
+									p Анонимно
+									p Оценка специалиста 5.0
+									p Оценка клиники 5.0
+								.panel-body
+									p Все отличненько, я почти не схожу с ума....
+	
+
+			#recModal.modal.fade(tabindex="-1", role="dialog", aria-hidden="true")
+				.modal-dialog
+					.modal-content
+						.modal-header
+							button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+							h4.modal-title Новер вашей записи ХХХХ
+						.modal-body
+							p Пожалуйста сохраните этот номер для подтверждения в регистратуре клиники или отмены записи. 
+							p Подтверждение о записи отправлено вам на почту. 
+							p В ближайшее время с вами свяжется сотрудник клиники по указанному номеру. 
+							p Спасибо, что воспользовались нашей системой.
+
+						.modal-footer
+							button.btn.btn-default(type='button', data-dismiss='modal') Закрыть
+	
+
+	script(src='js/lib/angular/angular.js')
+	script(src='js/app.js')
+	script(src='js/services.js')
+	script(src='js/controllers.js')
+	script(src='js/filters.js')
+	script(src='js/directives.js')
+	script(src='js/date-script.js')
