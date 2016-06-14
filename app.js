@@ -1,11 +1,13 @@
 
 /**
- * Module dependencies.
+ * Module dependencies
  */
 
 var express = require('express'),
   routes = require('./routes'),
-  api = require('./routes/api');
+  api = require('./routes/api'),
+  http = require('http'),
+  path = require('path');
   var mysql      = require('mysql');
   var pool      =    mysql.createPool({
     connectionLimit : 100, //important
@@ -16,68 +18,53 @@ var express = require('express'),
     debug    :  false
   });
 
-var app = module.exports = express.createServer();
 
-// Configuration
+var app = module.exports = express();
 
-app.configure(function(){
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
-  app.set('view options', {
-    layout: false
-  });
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(express.static(__dirname + '/public'));
-  app.use(app.router);
-});
+/**
+* Configuration
+*/
+
+// all environments
+app.set('port', process.env.PORT || 3000);
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
+app.use(express.logger('dev'));
+app.use(express.bodyParser());
+app.use(express.methodOverride());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(app.router);
+
+// development only
+if (app.get('env') === 'development') {
+   app.use(express.errorHandler());
+};
+
+// production only
+if (app.get('env') === 'production') {
+  // TODO
+}; 
 
 
-app.configure('development', function(){
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
-});
-
-app.configure('production', function(){
-  app.use(express.errorHandler());
-});
 
 // Routes
-
-app.get('*', function(req, res){
-  console.log("index");
-  res.render('layout_clinic');
-  // routes.index(req, res)
-});
-// app.get('/search', routes.search);
-// app.get('/record', routes.record);
-// app.get('/auth_clinic', routes.auth_clinic);
-// app.get('/registr_clinic', routes.registr_clinic);
-// app.get('/index_clinic', routes.index_clinic);
-// app.get('/edit_clinic', routes.edit_clinic);
-
+app.get('/', routes.index);
+//app.get('/partial/auth_clinic', routes.auth);
+app.get('/partial/:name', routes.partial);
 
 // JSON API
+app.get('/api/name', api.name);
 
 app.get("/api/tests",function(req,res){
   handle_database(req,res);
 });
-app.get('/api/posts', api.posts);
-
-app.get('/api/post/:id', api.post);
-app.post('/api/post', api.addPost);
-app.put('/api/post/:id', api.editPost);
-app.delete('/api/post/:id', api.deletePost);
 
 // redirect all others to the index (HTML5 history)
-// app.get('*', routes.index);
+app.get('*', routes.index);
 
-// Start server
-
-
-// app.get("test_page", function(req, res){
-//   console.log("### test_page")
-//   res.render('test_page');
-// });
+/**
+* Start Server
+*/
 
 function handle_database(req,res) {
     
@@ -105,7 +92,6 @@ function handle_database(req,res) {
   });
 }
 
-
-app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+http.createServer(app).listen(app.get('port'), function () {
+  console.log('Express server listening on port ' + app.get('port'));
 });

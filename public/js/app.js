@@ -1,47 +1,12 @@
 'use strict';
 
+
 // Declare app level module which depends on filters, and services
-angular.module('myApp', ['myApp.controllers', 'myApp.filters', 'myApp.services', 'myApp.directives']).
+angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives','ngRoute']).
   config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-    $routeProvider.
-      when('/', {
-        templateUrl: 'index_clinic.jade',
-        controller: 'IndexCtrl'
-      }).
-      when('/addPost', {
-        templateUrl: 'partials/addPost',
-        controller: 'AddPostCtrl'
-      }).
-
-
-      when('/search', {
-        templateUrl: 'search'
-      }).
-      when('/record', {
-        templateUrl: 'record'
-      }).
-      when('/auth_clinic', {
-        controller: 'AuthCtrl',
-        templateUrl: 'auth_clinic.jade'
-      }).
-      when('/registr_clinic', {
-        templateUrl: 'registr_clinic'
-      }).
-      // when('/index_clinic', {
-      //   templateUrl: 'index_clinic'
-      // }).
-      when('/edit_clinic', {
-        templateUrl: 'edit_clinic'
-      }).
-      when('/test_page', {
-        templateUrl: 'test_page',
-        controller: 'TestCtrl'
-      });
-
-
-      
-      // otherwise({
-      //   redirectTo: '/'
-      // });
+    $routeProvider.when('/view1', {templateUrl: 'partial/1', controller: MyCtrl1});
+    $routeProvider.when('/view2', {templateUrl: 'partial/2', controller: MyCtrl2});
+    $routeProvider.when('/auth_clinic', {templateUrl: 'partial/auth_clinic', controller: MyCtrl2});
+    $routeProvider.otherwise({redirectTo: '/view1'});
     $locationProvider.html5Mode(true);
   }]);

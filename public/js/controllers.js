@@ -1,75 +1,33 @@
 'use strict';
 
 /* Controllers */
-angular.module('myApp.controllers', []).
-controller('IndexCtrl', function($scope, $http) {
-  console.log("### IndexCtrl");
-  // debugger;
-}).
 
-controller('AddPostCtrl', function($scope, $http, $location) {
-  $scope.form = {};
-  $scope.submitPost = function () {
-    $http.post('/api/post', $scope.form).
-      success(function(data) {
-        $location.path('/');
-      });
-  };
-}).
-
-controller('AuthCtrl',function($scope, $http, $location) {
-  $scope.form = {};
-  console.log("### logi logi")
-})
-
-function ReadPostCtrl($scope, $http, $routeParams) {
-  $http.get('/api/post/' + $routeParams.id).
-    success(function(data) {
-      $scope.post = data.post;
-    });
+function AppCtrl($scope, $http) {
+  $http({method: 'GET', url: '/api/name'}).
+  success(function(data, status, headers, config) {
+    $scope.name = data.name;
+  }).
+  error(function(data, status, headers, config) {
+    $scope.name = 'Error!'
+  });
 }
 
-function EditPostCtrl($scope, $http, $location, $routeParams) {
-  $scope.form = {};
-  $http.get('/api/post/' + $routeParams.id).
-    success(function(data) {
-      $scope.form = data.post;
-    });
-
-  $scope.editPost = function () {
-    $http.put('/api/post/' + $routeParams.id, $scope.form).
-      success(function(data) {
-        $location.url('/readPost/' + $routeParams.id);
-      });
-  };
+function IndexCtrl($scope, $http){
+	console.log("### IndexCtrl here")
 }
 
-function DeletePostCtrl($scope, $http, $location, $routeParams) {
-  $http.get('/api/post/' + $routeParams.id).
-    success(function(data) {
-      $scope.post = data.post;
-    });
+function MyCtrl1() {}
+MyCtrl1.$inject = [];
 
-  $scope.deletePost = function () {
-    $http.delete('/api/post/' + $routeParams.id).
-      success(function(data) {
-        $location.url('/');
-      });
-  };
 
-  $scope.home = function () {
-    console.log("###")
-    $location.url('/');
-  };
+function MyCtrl2($scope, $http) {
+	$http({method:"GET", url: "/api/tests"}).
+	success(function(data, status, headers, config) {
+		console.log("### data", data[0])
+	    $scope.row = data[0];
+	}).
+	error(function(data, status, headers, config) {
+	    $scope.name = 'Error!'
+	});
 }
-
-function TestCtrl($scope, $http) {
-  console.log("### TestCtrl");
-  $http.get('/api/tests').
-    success(function(data, status, headers, config) {
-      console.log("### data is:", data);
-      $scope.testData = data.posts;
-    }).error(function(err){
-      console.log("### err", err);
-    });
-}
+MyCtrl2.$inject = ["$scope", "$http"];

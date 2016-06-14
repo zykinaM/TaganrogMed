@@ -4,37 +4,18 @@
  */
 
 exports.index = function(req, res){
-  console.log("### index cl")
-  res.render('index_clinic');
+  res.render('index');
 };
 
-exports.search = function(req, res){
-  res.render('search');
-};
+exports.auth = function(req, res){
+	res.render('partials/auth_clinic')
+}
 
-exports.record = function(req, res){
-  res.render('record');
-};
-
-exports.auth_clinic = function(req, res){
-	console.log("### auth_clinic");
-  res.render('auth_clinic');
-};
-
-exports.registr_clinic = function(req, res){
-  res.render('registr_clinic');
-};
-
-exports.index_clinic = function(req, res){
-  res.render('index_clinic');
-};
-
-exports.edit_clinic = function(req, res){
-  res.render('edit_clinic');
-};
-
-
-exports.partials = function (req, res) {
+exports.partial = function (req, res) {
   var name = req.params.name;
-  res.render('partials/' + name);
+  if (name == "auth_clinic"){
+  	res.render('partials/auth_clinic')	
+  } else {
+  	res.render('partials/partial' + name);
+  }
 };
