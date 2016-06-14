@@ -43,23 +43,24 @@ app.configure('production', function(){
 
 // Routes
 
-app.get('/', function(req, res){
+app.get('*', function(req, res){
   console.log("index");
-  routes.index(req, res)
+  res.render('layout_clinic');
+  // routes.index(req, res)
 });
-app.get('/search', routes.search);
-app.get('/record', routes.record);
-app.get('/auth_clinic', routes.auth_clinic);
-app.get('/registr_clinic', routes.registr_clinic);
-app.get('/index_clinic', routes.index_clinic);
-app.get('/edit_clinic', routes.edit_clinic);
+// app.get('/search', routes.search);
+// app.get('/record', routes.record);
+// app.get('/auth_clinic', routes.auth_clinic);
+// app.get('/registr_clinic', routes.registr_clinic);
+// app.get('/index_clinic', routes.index_clinic);
+// app.get('/edit_clinic', routes.edit_clinic);
+
+
+// JSON API
 
 app.get("/api/tests",function(req,res){
   handle_database(req,res);
 });
-
-// JSON API
-
 app.get('/api/posts', api.posts);
 
 app.get('/api/post/:id', api.post);
@@ -68,7 +69,7 @@ app.put('/api/post/:id', api.editPost);
 app.delete('/api/post/:id', api.deletePost);
 
 // redirect all others to the index (HTML5 history)
-app.get('*', routes.index);
+// app.get('*', routes.index);
 
 // Start server
 

@@ -1,71 +1,56 @@
 extends layout_clinic
 
 block body
+	div(ng-controller='IndexCtrl')
+		.container.container-jumborton 
+			.jumbotron
+				h1 ТаганрогМед
+				.input-group 
+					input.form-control(type='text', placeholder='Введите фамилию врача/специализацию/услугу', autofocus='')
+					span.input-group-btn
+						a.btn.btn-default(href='search' type='button') Поиск
 
-	.container
-		.row
-			.col-sm-8
-				.input-group
-					span.input-group-addon Поиск
-					input#filter.form-control(type='filter', placeholder='Поиск...')
-				table.table.table-striped
-					thead
-						tr
-							th Номер записи
-							th Дата 
-							th Время
-							th Специалист
-							th Пациент
-							th Телефон
-							th Статус
-					tbody.searchable
-						tr
-							td 001
-							td 12/01/2016
-							td 13.30
-							td Иванов И.И. (Стоматолог)
-							td Пупкин
-							td 11111
-							td
-								input(type="checkbox")
-						tr
-							td 345
-							td 12/01/2016
-							td 11.00
-							td Петров И.И. (Кардиолог)
-							td Мария
-							td 22222
-							td
-								input(type="checkbox")
-						tr
-							td 444
-							td 12/01/2016
-							td 20.00
-							td Сидоров И.И. (Окулист)
-							td ымывмва
-							td 44444
-							td
-								input(type="checkbox")
-						tr
-							td 221
-							td 12/01/2016
-							td 10.15
-							td Петечкин И.И. (Массажист)
-							td некто
-							td 66666
-							td
-								input(type="checkbox")
-			.col-sm-4
-				a.btn.btn-lg.btn-success.btn-block.btn_clinic(type='submit' href='index') 
-					.text_wrap Записать пациента на прием
-				a.btn.btn-lg.btn-info.btn-block.btn_clinic(type='submit' href='registr_clinic') 					
-					.text_wrap Редактирование общей информации о клинике
-				a.btn.btn-lg.btn-primary.btn-block.btn_clinic(type='submit' href='edit_clinic') 
-					.text_wrap Редактирование информации о специалистах
+			.row
+		.container
+				.col-sm-8.col-sm-offset-2.text-center
+					h3
+						strong  Лучшие специалисты
+			.row
+				.col-md-4
+					.panel.panel-default.panel-profile
+						.panel-heading
+						.panel-body
+							img.foto-img.panel-profile-img(src='img/med-ico.png')
+							h5.panel-title Доктор Айболит 
+							p Врач
+							p Оценка 5.0
+							p Стаж 3года
+							p "АфрикаДокторс"
+							p Стоимость 1000руб
+							a.btn.btn-primary-outline.btn-sm  Подробнее...
 
-	script(src='js/lib/angular/angular.js')
-	script(src='js/app.js')
-	script(src='js/services.js')
-	script(src='js/controllers.js')
-	script(src='js/filters.js')
-	script(src='js/directives.js')
+
+			.row
+				.col-sm-8.col-sm-offset-2.text-center
+					h3
+						strong  Отзывы
+			.row
+				.col-md-4
+					.panel.panel-default.panel-profile
+						.panel-heading
+						.panel-body.text-center
+							h5.panel-title Доктор Айболит 
+							p Врач
+							p Анонимно: Все круто и классно 
+							a.btn.btn-primary-outline.btn-sm  Все отзывы...
+				.col-md-4
+					.panel.panel-default.panel-profile
+						.panel-heading
+						.panel-body.text-center
+							h5.panel-title Карабас Барабас
+							p Стоматолог
+							p Мальвина: Бооооооольно 
+							a.btn.btn-primary-outline.btn-sm  Все отзывы...
+			
+
+	

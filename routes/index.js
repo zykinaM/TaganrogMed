@@ -4,7 +4,8 @@
  */
 
 exports.index = function(req, res){
-  res.render('index');
+  console.log("### index cl")
+  res.render('index_clinic');
 };
 
 exports.search = function(req, res){
@@ -16,6 +17,7 @@ exports.record = function(req, res){
 };
 
 exports.auth_clinic = function(req, res){
+	console.log("### auth_clinic");
   res.render('auth_clinic');
 };
 

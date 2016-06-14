@@ -1,28 +1,16 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives']).
+angular.module('myApp', ['myApp.controllers', 'myApp.filters', 'myApp.services', 'myApp.directives']).
   config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider.
       when('/', {
-        templateUrl: 'index',
-        controller: IndexCtrl
+        templateUrl: 'index_clinic.jade',
+        controller: 'IndexCtrl'
       }).
       when('/addPost', {
         templateUrl: 'partials/addPost',
-        controller: AddPostCtrl
-      }).
-      when('/readPost/:id', {
-        templateUrl: 'partials/readPost',
-        controller: ReadPostCtrl
-      }).
-      when('/editPost/:id', {
-        templateUrl: 'partials/editPost',
-        controller: EditPostCtrl
-      }).
-      when('/deletePost/:id', {
-        templateUrl: 'partials/deletePost',
-        controller: DeletePostCtrl
+        controller: 'AddPostCtrl'
       }).
 
 
@@ -33,26 +21,27 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives'])
         templateUrl: 'record'
       }).
       when('/auth_clinic', {
-        templateUrl: 'auth_clinic'
+        controller: 'AuthCtrl',
+        templateUrl: 'auth_clinic.jade'
       }).
       when('/registr_clinic', {
         templateUrl: 'registr_clinic'
       }).
-      when('/index_clinic', {
-        templateUrl: 'index_clinic'
-      }).
+      // when('/index_clinic', {
+      //   templateUrl: 'index_clinic'
+      // }).
       when('/edit_clinic', {
         templateUrl: 'edit_clinic'
       }).
       when('/test_page', {
         templateUrl: 'test_page',
-        controller: TestCtrl
-      }).
+        controller: 'TestCtrl'
+      });
 
 
       
-      otherwise({
-        redirectTo: '/'
-      });
+      // otherwise({
+      //   redirectTo: '/'
+      // });
     $locationProvider.html5Mode(true);
   }]);

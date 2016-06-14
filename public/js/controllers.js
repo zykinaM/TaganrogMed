@@ -1,24 +1,13 @@
 'use strict';
 
 /* Controllers */
+angular.module('myApp.controllers', []).
+controller('IndexCtrl', function($scope, $http) {
+  console.log("### IndexCtrl");
+  // debugger;
+}).
 
-function IndexCtrl($scope, $http) {
-  $http.get('/api/posts').
-    success(function(data, status, headers, config) {
-      $scope.posts = data.posts;
-    });
-
-  console.log("### TestCtrl");
-  $http.get('/api/tests').
-    success(function(data, status, headers, config) {
-      console.log("### data is:", data);
-      $scope.testData = data.posts;
-    }).error(function(err){
-      console.log("### err", err);
-    });
-}
-
-function AddPostCtrl($scope, $http, $location) {
+controller('AddPostCtrl', function($scope, $http, $location) {
   $scope.form = {};
   $scope.submitPost = function () {
     $http.post('/api/post', $scope.form).
@@ -26,7 +15,12 @@ function AddPostCtrl($scope, $http, $location) {
         $location.path('/');
       });
   };
-}
+}).
+
+controller('AuthCtrl',function($scope, $http, $location) {
+  $scope.form = {};
+  console.log("### logi logi")
+})
 
 function ReadPostCtrl($scope, $http, $routeParams) {
   $http.get('/api/post/' + $routeParams.id).
