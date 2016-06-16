@@ -1,9 +1,9 @@
 .container
-	form.form-signin(role='form')
+	form#myform.form-signin(role='form')
 		h2.form-signin-heading Вход/Регистрация
 		p
 			| {{ row.f3 }}
-		input.form-control(type='login', placeholder='Логин', required='', autofocus='')
+		input#clinic_id.form-control(type='login', placeholder='Логин', required='', autofocus='', name="id_clin")
 		input.form-control(type='password', placeholder='Пароль', required='')
-		a.btn.btn-lg.btn-info.btn-block(type='submit', href='clinic') Вход
-		a.btn.btn-lg.btn-primary.btn-block(type='submit', href='registr_clinic') Регистрация новой клиники
+		a.btn.btn-lg.btn-info.btn-block(type='', ng-click='check_clinic()') Вход
+		a.btn.btn-lg.btn-primary.btn-block(type='', href='registr_clinic') Регистрация новой клиники

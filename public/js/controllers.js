@@ -19,10 +19,35 @@ function IndexCtrl($scope, $http){
 function MyCtrl1() {}
 MyCtrl1.$inject = [];
 
-function MainCtrl($scope, $http) {
+function MainCtrl($scope, $http, $rootScope, $location) {
+	$http({method:"GET", url: "/api/tests"}).
+	success(function(data, status, headers, config) {
+		console.log("### data", data[0])
+	    $scope.row = data[0];
+	}).
+	error(function(data, status, headers, config) {
+	    $scope.name = 'Error!'
+	});
+
 	console.log("Main")
+	$scope.check_clinic = check_clinic;
+
+	function check_clinic(){
+		$http({method:"GET", url: "/api/db/clinic?id_clin=" + $('#clinic_id').val()}).
+		success(function(data, status, headers, config) {
+			console.log("### data1", data[0])
+		    if(data.length){
+		    	$rootScope.user = data[0];
+		    	$location.path('/clinic')
+		    }
+		}).
+		error(function(data, status, headers, config) {
+		    $scope.name = 'Error!'
+		});
+	}
+
 }
-MainCtrl.$inject = ["$scope", "$http"];
+MainCtrl.$inject = ["$scope", "$http", "$rootScope", "$location"];
 
 
 

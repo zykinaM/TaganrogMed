@@ -8,7 +8,7 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives','
     $routeProvider.when('/search', {templateUrl: 'partial/search', controller: MainCtrl});
     $routeProvider.when('/record', {templateUrl: 'partial/record', controller: MainCtrl});
     $routeProvider.when('/clinic', {templateUrl: 'partial/clinic', controller: MainCtrl});
-    $routeProvider.when('/auth_clinic', {templateUrl: 'partial/auth_clinic', controller: MyCtrl2});
+    $routeProvider.when('/auth_clinic', {templateUrl: 'partial/auth_clinic', controller: MainCtrl});
     $routeProvider.otherwise({redirectTo: '/'});
     $locationProvider.html5Mode(true);
   }]);

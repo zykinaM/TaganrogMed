@@ -59,6 +59,11 @@ app.get("/api/tests",function(req,res){
   handle_database(req,res);
 });
 
+app.get("/api/db/:table",function(req,res){
+  console.log("### api/db/:table")
+  handle_database(req,res);
+});
+
 // redirect all others to the index (HTML5 history)
 app.get('*', routes.index);
 
@@ -76,19 +81,41 @@ function handle_database(req,res) {
         }   
 
         console.log('connected as id ' + connection.threadId);
-        
-        connection.query("select * from tests",function(err,rows){
-          console.log("### rows", rows);
-            connection.release();
-            if(!err) {
-                res.json(rows);
-            }           
-        });
+        // console.log('req: ' ,req);
+        var name = req.params.name;
+        var table = req.params.table;
+        if(table == 'clinic'){
+          connection.query("select * from clinic where ID_clin=" + req.query.id_clin + ";",function(err,rows){
+              console.log("### rows", rows);
+              connection.release();
+              if(!err && rows.length) {
+                  // res.redirect('/clinic');
+                  res.json(rows);
+              } else {
+                  res.json({'error': true, 'message': 'Something was wrong:', err})
+              }          
+          });
 
-        connection.on('error', function(err) {      
-              res.json({"code" : 100, "status" : "Error in connection database"});
-              return;     
-        });
+          connection.on('error', function(err) {      
+                res.json({"code" : 100, "status" : "Error in connection database"});
+                return;     
+          });
+        } else if (false){
+
+        } else {
+          connection.query("select * from tests",function(err,rows){
+            console.log("### rows", rows);
+              connection.release();
+              if(!err) {
+                  res.json(rows);
+              }           
+          });
+
+          connection.on('error', function(err) {      
+                res.json({"code" : 100, "status" : "Error in connection database"});
+                return;     
+          });
+        }
   });
 }
 

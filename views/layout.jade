@@ -27,7 +27,8 @@ html(ng-app="myApp")
                     a(href='view2') Контакты
             ul.nav.navbar-nav.navbar-right
                 li
-                    a(href='auth_clinic') Клиникам
+                    a(href='auth_clinic', ng-if="user && user.Name_clin") {{ user.Name_clin }} 
+                    a(href='auth_clinic', ng-if="!user") Клиникам
     block body
     sw
     .footer.navbar-fixed-bottom 
