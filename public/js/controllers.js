@@ -19,6 +19,12 @@ function IndexCtrl($scope, $http){
 function MyCtrl1() {}
 MyCtrl1.$inject = [];
 
+function MainCtrl($scope, $http) {
+	console.log("Main")
+}
+MainCtrl.$inject = ["$scope", "$http"];
+
+
 
 function MyCtrl2($scope, $http) {
 	$http({method:"GET", url: "/api/tests"}).
