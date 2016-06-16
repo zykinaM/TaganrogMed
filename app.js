@@ -4,54 +4,19 @@
  */
 
 var express = require('express'),
-  mysql     = require('mysql'),
-  routes    = require('./routes'),
-  api       = require('./routes/api');
+  routes = require('./routes'),
+  api = require('./routes/api');
+  var mysql      = require('mysql');
+  var pool      =    mysql.createPool({
+    connectionLimit : 100, //important
+    host     : 'eu-cdbr-west-01.cleardb.com',
+    user     : 'bd1a39cbb9bbc2',
+    password : 'ae18650b',
+    database : 'heroku_e80602e957e88dc',
+    debug    :  false
+  });
 
 var app = module.exports = express.createServer();
-
-var db_config_dev = {
-    host: 'eu-cdbr-west-01.cleardb.com',
-    user: 'bd1a39cbb9bbc2',
-    password: 'ae18650b',
-    database: 'heroku_e80602e957e88dc'
-};
-var db_config_prod = {
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'taganrogmed'
-};
-
-var db_config = db_config_prod;
-// var db_config = db_config_dev;
-
-var connection;
-
-
-function handleDisconnect() {
-    console.log('1. connecting to db:');
-    connection = mysql.createConnection(db_config_dev); // Recreate the connection, since
-                          // the old one cannot be reused.
-
-    connection.connect(function(err) {                // The server is either down
-        if (err) {                                     // or restarting (takes a while sometimes).
-            console.log('2. error when connecting to db:', err);
-            setTimeout(handleDisconnect, 1000); // We introduce a delay before attempting to reconnect,
-        }                                       // to avoid a hot loop, and to allow our node script to
-    });                                       // process asynchronous requests in the meantime.
-                          // If you're also serving http, display a 503 error.
-    connection.on('error', function(err) {
-        console.log('3. db error', err);
-        if (err.code === 'PROTOCOL_CONNECTION_LOST') {  // Connection to the MySQL server is usually
-            handleDisconnect();                       // lost due to either server restart, or a
-        } else {                                        // connnection idle timeout (the wait_timeout
-            throw err;                                  // server variable configures this)
-        }
-    });
-}
-
-handleDisconnect();
 
 // Configuration
 
@@ -78,25 +43,9 @@ app.configure('production', function(){
 
 // Routes
 
-app.get('/test', function(req, res){
-  connection.query('SELECT * from clinic', function(err, rows, fields) {
-    connection.end();
-    if(!err){
-      console.log("### rows is:", rows);
-    } else {
-      console.log("### err", err);
-    }
-  })
-});
-app.get('/', routes.index, function(req, res){
-  connection.query('SELECT name_spec from specialisation', function(err, rows, fields) {
-    connection.end();
-    if(!err){
-      console.log("### rows is:", rows);
-    } else {
-      console.log("### err", err);
-    }
-  })
+app.get('/', function(req, res){
+  console.log("index");
+  routes.index(req, res)
 });
 app.get('/search', routes.search);
 app.get('/record', routes.record);
@@ -105,7 +54,9 @@ app.get('/registr_clinic', routes.registr_clinic);
 app.get('/index_clinic', routes.index_clinic);
 app.get('/edit_clinic', routes.edit_clinic);
 
-app.get('/partials/:name', routes.partials);
+app.get("/api/tests",function(req,res){
+  handle_database(req,res);
+});
 
 // JSON API
 
@@ -120,6 +71,39 @@ app.delete('/api/post/:id', api.deletePost);
 app.get('*', routes.index);
 
 // Start server
+
+
+// app.get("test_page", function(req, res){
+//   console.log("### test_page")
+//   res.render('test_page');
+// });
+
+function handle_database(req,res) {
+    
+    pool.getConnection(function(err,connection){
+        if (err) {
+          connection.release();
+          res.json({"code" : 100, "status" : "Error in connection database"});
+          return;
+        }   
+
+        console.log('connected as id ' + connection.threadId);
+        
+        connection.query("select * from tests",function(err,rows){
+          console.log("### rows", rows);
+            connection.release();
+            if(!err) {
+                res.json(rows);
+            }           
+        });
+
+        connection.on('error', function(err) {      
+              res.json({"code" : 100, "status" : "Error in connection database"});
+              return;     
+        });
+  });
+}
+
 
 app.listen(process.env.PORT || 3000, function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
