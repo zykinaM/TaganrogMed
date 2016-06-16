@@ -1,8 +1,9 @@
 /* app css stylesheet */
 
 body {
-  min-height: 1000px;
+  min-height: 100%;
 }
+
 .navbar {
   margin-bottom: 0;
 }
@@ -58,7 +59,6 @@ body {
 }
 
 .footer {
-  height: 50px;
   font-size: 12px;
   background-color: #f8f8f8;
 }
@@ -84,14 +84,10 @@ body {
     white-space: normal;
 }
 
-.form-signin {
-  max-width: 400px;
-  align-content: center;
-  position: absolute;
-  top: 10%;
-  left: 30%;
-}
-
 .form_record {
   background-color:  #87CEFA;
+}
+
+.row {
+  margin: 10px;
 }

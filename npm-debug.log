@@ -1,0 +1,219 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'jade',
+1 verbose cli   '--global' ]
+2 info using npm@2.15.1
+3 info using node@v4.4.4
+4 verbose install initial load of /usr/lib/package.json
+5 verbose readDependencies loading dependencies from /usr/lib/package.json
+6 silly cache add args [ 'jade', null ]
+7 verbose cache add spec jade
+8 silly cache add parsed spec Result {
+8 silly cache add   raw: 'jade',
+8 silly cache add   scope: null,
+8 silly cache add   name: 'jade',
+8 silly cache add   rawSpec: '',
+8 silly cache add   spec: 'latest',
+8 silly cache add   type: 'tag' }
+9 silly addNamed jade@latest
+10 verbose addNamed "latest" is being treated as a dist-tag for jade
+11 info addNameTag [ 'jade', 'latest' ]
+12 silly mapToRegistry name jade
+13 silly mapToRegistry using default registry
+14 silly mapToRegistry registry https://registry.npmjs.org/
+15 silly mapToRegistry data Result {
+15 silly mapToRegistry   raw: 'jade',
+15 silly mapToRegistry   scope: null,
+15 silly mapToRegistry   name: 'jade',
+15 silly mapToRegistry   rawSpec: '',
+15 silly mapToRegistry   spec: 'latest',
+15 silly mapToRegistry   type: 'tag' }
+16 silly mapToRegistry uri https://registry.npmjs.org/jade
+17 verbose addNameTag registry:https://registry.npmjs.org/jade not in flight; fetching
+18 verbose request uri https://registry.npmjs.org/jade
+19 verbose request no auth needed
+20 info attempt registry request try #1 at 3:28:44 PM
+21 verbose request id db49008ef8cf0d8c
+22 verbose etag "7FF4YW9RJ4XUQH3JMP40W5DZN"
+23 http request GET https://registry.npmjs.org/jade
+24 http 200 https://registry.npmjs.org/jade
+25 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+25 verbose headers   etag: '"36CPZ51TJOM3JMWXG77IAU0EK"',
+25 verbose headers   'content-type': 'application/json',
+25 verbose headers   'content-encoding': 'gzip',
+25 verbose headers   'cache-control': 'max-age=300',
+25 verbose headers   'content-length': '19503',
+25 verbose headers   'accept-ranges': 'bytes',
+25 verbose headers   date: 'Mon, 13 Jun 2016 12:28:44 GMT',
+25 verbose headers   via: '1.1 varnish',
+25 verbose headers   age: '215',
+25 verbose headers   connection: 'keep-alive',
+25 verbose headers   'x-served-by': 'cache-fra1232-FRA',
+25 verbose headers   'x-cache': 'HIT',
+25 verbose headers   'x-cache-hits': '7',
+25 verbose headers   'x-timer': 'S1465820924.804824,VS0,VE0',
+25 verbose headers   vary: 'Accept-Encoding' }
+26 silly get cb [ 200,
+26 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+26 silly get     etag: '"36CPZ51TJOM3JMWXG77IAU0EK"',
+26 silly get     'content-type': 'application/json',
+26 silly get     'content-encoding': 'gzip',
+26 silly get     'cache-control': 'max-age=300',
+26 silly get     'content-length': '19503',
+26 silly get     'accept-ranges': 'bytes',
+26 silly get     date: 'Mon, 13 Jun 2016 12:28:44 GMT',
+26 silly get     via: '1.1 varnish',
+26 silly get     age: '215',
+26 silly get     connection: 'keep-alive',
+26 silly get     'x-served-by': 'cache-fra1232-FRA',
+26 silly get     'x-cache': 'HIT',
+26 silly get     'x-cache-hits': '7',
+26 silly get     'x-timer': 'S1465820924.804824,VS0,VE0',
+26 silly get     vary: 'Accept-Encoding' } ]
+27 verbose get saving jade to /home/marina/.npm/registry.npmjs.org/jade/.cache.json
+28 verbose correctMkdir /home/marina/.npm correctMkdir not in flight; initializing
+29 silly addNameTag next cb for jade with tag latest
+30 silly addNamed jade@1.11.0
+31 verbose addNamed "1.11.0" is a plain semver version for jade
+32 warn deprecated jade@1.11.0: Jade has been renamed to pug, please install the latest version of pug instead of jade
+33 silly cache afterAdd jade@1.11.0
+34 verbose afterAdd /home/marina/.npm/jade/1.11.0/package/package.json not in flight; writing
+35 verbose correctMkdir /home/marina/.npm correctMkdir not in flight; initializing
+36 verbose afterAdd /home/marina/.npm/jade/1.11.0/package/package.json written
+37 silly install resolved [ { name: 'jade',
+37 silly install resolved     description: 'A clean, whitespace-sensitive template language for writing HTML',
+37 silly install resolved     version: '1.11.0',
+37 silly install resolved     author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+37 silly install resolved     maintainers: [ [Object], [Object], [Object], [Object] ],
+37 silly install resolved     license: 'MIT',
+37 silly install resolved     repository: { type: 'git', url: 'git://github.com/jadejs/jade.git' },
+37 silly install resolved     main: 'lib',
+37 silly install resolved     bin: { jade: './bin/jade.js' },
+37 silly install resolved     dependencies:
+37 silly install resolved      { 'character-parser': '1.2.1',
+37 silly install resolved        'clean-css': '^3.1.9',
+37 silly install resolved        commander: '~2.6.0',
+37 silly install resolved        constantinople: '~3.0.1',
+37 silly install resolved        jstransformer: '0.0.2',
+37 silly install resolved        mkdirp: '~0.5.0',
+37 silly install resolved        transformers: '2.1.0',
+37 silly install resolved        'uglify-js': '^2.4.19',
+37 silly install resolved        'void-elements': '~2.0.1',
+37 silly install resolved        with: '~4.0.0' },
+37 silly install resolved     devDependencies:
+37 silly install resolved      { browserify: '*',
+37 silly install resolved        'browserify-middleware': '~4.1.0',
+37 silly install resolved        'code-mirror': '~3.22.0',
+37 silly install resolved        'coffee-script': '*',
+37 silly install resolved        coveralls: '^2.11.2',
+37 silly install resolved        express: '~4.10.4',
+37 silly install resolved        'github-basic': '^4.1.2',
+37 silly install resolved        handle: '~1.0.0',
+37 silly install resolved        'highlight-codemirror': '~4.1.0',
+37 silly install resolved        inconsolata: '0.0.2',
+37 silly install resolved        istanbul: '*',
+37 silly install resolved        'jade-code-mirror': '~1.0.5',
+37 silly install resolved        'jade-highlighter': '~1.0.5',
+37 silly install resolved        'jstransformer-cdata': '0.0.3',
+37 silly install resolved        'jstransformer-coffee-script': '0.0.2',
+37 silly install resolved        'jstransformer-less': '^1.0.0',
+37 silly install resolved        'jstransformer-marked': '0.0.1',
+37 silly install resolved        'jstransformer-stylus': '0.0.1',
+37 silly install resolved        'jstransformer-verbatim': '0.0.2',
+37 silly install resolved        less: '<2.0.0',
+37 silly install resolved        'less-file': '0.0.9',
+37 silly install resolved        linify: '*',
+37 silly install resolved        lsr: '^1.0.0',
+37 silly install resolved        marked: '~0.3.3',
+37 silly install resolved        mocha: '*',
+37 silly install resolved        opener: '^1.3.0',
+37 silly install resolved        'pull-request': '^3.0.0',
+37 silly install resolved        rimraf: '^2.2.8',
+37 silly install resolved        should: '*',
+37 silly install resolved        stop: '^3.0.0-rc1',
+37 silly install resolved        stylus: '*',
+37 silly install resolved        twbs: '0.0.6',
+37 silly install resolved        'uglify-js': '*' },
+37 silly install resolved     component: { scripts: [Object] },
+37 silly install resolved     scripts:
+37 silly install resolved      { test: 'mocha -R spec',
+37 silly install resolved        precoverage: 'rimraf coverage && rimraf cov-pt*',
+37 silly install resolved        coverage: 'istanbul cover --report none --dir cov-pt0 node_modules/mocha/bin/_mocha -- -R dot',
+37 silly install resolved        postcoverage: 'istanbul report --include cov-pt\\*/coverage.json && rimraf cov-pt*',
+37 silly install resolved        coveralls: 'npm run coverage && cat ./coverage/lcov.info | coveralls',
+37 silly install resolved        prepublish: 'npm prune && linify transform bin && npm run build',
+37 silly install resolved        build: 'npm run compile',
+37 silly install resolved        compile: 'npm run compile-full && npm run compile-runtime',
+37 silly install resolved        'compile-full': 'browserify ./lib/index.js --standalone jade -x ./node_modules/transformers > jade.js',
+37 silly install resolved        'compile-runtime': 'browserify ./lib/runtime.js --standalone jade > runtime.js' },
+37 silly install resolved     browser: { fs: false, './lib/filters.js': './lib/filters-client.js' },
+37 silly install resolved     homepage: 'http://jade-lang.com',
+37 silly install resolved     gitHead: '31966399f86b15159f2ff47dff99fbf4c92fadd5',
+37 silly install resolved     bugs: { url: 'https://github.com/jadejs/jade/issues' },
+37 silly install resolved     _id: 'jade@1.11.0',
+37 silly install resolved     _shasum: '9c80e538c12d3fb95c8d9bb9559fa0cc040405fd',
+37 silly install resolved     _from: 'jade@latest',
+37 silly install resolved     _npmVersion: '2.11.0',
+37 silly install resolved     _nodeVersion: '2.2.1',
+37 silly install resolved     _npmUser: { name: 'alubbe', email: 'npm@lubbe.org' },
+37 silly install resolved     dist:
+37 silly install resolved      { shasum: '9c80e538c12d3fb95c8d9bb9559fa0cc040405fd',
+37 silly install resolved        tarball: 'https://registry.npmjs.org/jade/-/jade-1.11.0.tgz' },
+37 silly install resolved     deprecated: 'Jade has been renamed to pug, please install the latest version of pug instead of jade',
+37 silly install resolved     directories: {},
+37 silly install resolved     _resolved: 'https://registry.npmjs.org/jade/-/jade-1.11.0.tgz',
+37 silly install resolved     readme: 'ERROR: No README data found!' } ]
+38 info install jade@1.11.0 into /usr/lib
+39 info installOne jade@1.11.0
+40 verbose installOne of jade to /usr/lib not in flight; installing
+41 verbose correctMkdir /home/marina/.npm/_locks correctMkdir not in flight; initializing
+42 verbose lock using /home/marina/.npm/_locks/jade-8e4cfbc070219da0.lock for /usr/lib/node_modules/jade
+43 silly install write writing jade 1.11.0 to /usr/lib/node_modules/jade
+44 verbose unbuild lib/node_modules/jade
+45 silly gentlyRm /usr/lib/node_modules/jade is being purged from base /usr
+46 verbose gentlyRm don't care about contents; nuking /usr/lib/node_modules/jade
+47 verbose tar unpack /home/marina/.npm/jade/1.11.0/package.tgz
+48 verbose tar unpacking to /usr/lib/node_modules/jade
+49 silly gentlyRm /usr/lib/node_modules/jade is being purged
+50 verbose gentlyRm don't care about contents; nuking /usr/lib/node_modules/jade
+51 silly gunzTarPerm modes [ '775', '664' ]
+52 error tar.unpack untar error /home/marina/.npm/jade/1.11.0/package.tgz
+53 verbose unlock done using /home/marina/.npm/_locks/jade-8e4cfbc070219da0.lock for /usr/lib/node_modules/jade
+54 verbose fstream_path /usr/lib/node_modules/jade
+55 verbose fstream_type Directory
+56 verbose fstream_class DirWriter
+57 verbose stack Error: EACCES: permission denied, mkdir '/usr/lib/node_modules/jade'
+57 verbose stack     at Error (native)
+58 verbose fstream_stack /usr/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:35:25
+58 verbose fstream_stack /usr/lib/node_modules/npm/node_modules/mkdirp/index.js:47:53
+58 verbose fstream_stack FSReqWrap.oncomplete (fs.js:82:15)
+59 verbose cwd /home/marina/workspace/projects/TaganrogMed
+60 error Linux 4.2.0-27-generic
+61 error argv "/usr/bin/nodejs" "/usr/bin/npm" "install" "jade" "--global"
+62 error node v4.4.4
+63 error npm  v2.15.1
+64 error path /usr/lib/node_modules/jade
+65 error code EACCES
+66 error errno -13
+67 error syscall mkdir
+68 error Error: EACCES: permission denied, mkdir '/usr/lib/node_modules/jade'
+68 error     at Error (native)
+68 error  { [Error: EACCES: permission denied, mkdir '/usr/lib/node_modules/jade']
+68 error   errno: -13,
+68 error   code: 'EACCES',
+68 error   syscall: 'mkdir',
+68 error   path: '/usr/lib/node_modules/jade',
+68 error   fstream_type: 'Directory',
+68 error   fstream_path: '/usr/lib/node_modules/jade',
+68 error   fstream_class: 'DirWriter',
+68 error   fstream_stack:
+68 error    [ '/usr/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:35:25',
+68 error      '/usr/lib/node_modules/npm/node_modules/mkdirp/index.js:47:53',
+68 error      'FSReqWrap.oncomplete (fs.js:82:15)' ] }
+69 error Please try running this command again as root/Administrator.
+70 verbose exit [ -13, true ]
+71 verbose unbuild lib/node_modules/jade
+72 silly gentlyRm /usr/lib/node_modules/jade is being purged from base /usr
+73 verbose gentlyRm don't care about contents; nuking /usr/lib/node_modules/jade
