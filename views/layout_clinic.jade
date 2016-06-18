@@ -20,44 +20,48 @@ html(lang='en' ng-app='myApp')
 body
 	// Static navbar
 	nav.navbar.navbar-default.navbar-static-top
-		.container
-			.navbar-header
-				button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
-					span.sr-only Toggle navigation
-					span.icon-bar
-					span.icon-bar
-					span.icon-bar
-				a.navbar-brand(href='index') ТаганрогМед
-				#navbar.navbar-collapse.collapse
-			ul.nav.navbar-nav
-				li
-					a(href='/') Главная
-				li
-					a(href='#about') О нас
-				li
-					a(href='#contact') Контакты
-			ul.nav.navbar-nav.navbar-right
-				li
-					a(href='auth_clinic') Клиникам
+		.container-fluid
+			.row
+				.navbar-header
+					button.navbar-toggle(data-toggle='collapse', data-target='#navbar_mob')
+						span.sr-only  
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+					a.navbar-brand(href='index') ТаганрогМедtttttttttt
+				#navbar_mob.navbar-collapse.collapse
+					ul.nav.navbar-nav
+						li
+							a(href='index') Главная
+						li
+							a(href='#', data-target='#mod_Cancel', data-toggle='modal') Отменить запись на прием
+					ul.nav.navbar-nav.navbar-right
+					ul.nav.navbar-nav.navbar-right
+						li
+	
+						a(href='auth_clinic') Клиникам
+	#mod_Cancel.modal.fade(tabindex='-1', role='dialog', aria-hidden='true')
+			.modal-dialog
+				.modal-content
+					.modal-header
+						button.close(data-dismiss='modal', aria-hidden='true')
+						h4.modal-title Отмена записи на прием*
+					.modal-body
+						form.form-horizontal
+							.form-group
+								label.control-label.col-sm-3(for='Record') Номер записи:
+								.col-sm-9
+									input#Rec.form-control(type='text', placeholder='Введите номер вашей записи')
+							.form-group
+								label.control-label.col-sm-3(for='email') E-mail:
+								.col-sm-9
+									input#mail.form-control(type='text', placeholder='Введите e-mail, указанный при оформлении записи')
+							h6 *Примечание: отмену записи можно оформить только, если запись на прием осуществлялась через онлайн-запись с указанием почтового адреса. Необходимо ввести почтовый адрес, указанный при оформлении и номер записи.
+					.modal-footer
+						button.btn.btn-primary(type='button') Подтвердить отмену
+
 	div(ng-view)
 		block body 
-sw
-	.footer.navbar-fixed-bottom 
-		.container
-
-			img.footer-img.col-sm-2(src='img/med-ico.png')
-			ul.col-sm-2
-				li
-					a(href='#') Клиники
-				li
-					a(href='#') Специалисты
-				li
-					a(href='#') Услуги
-			ul.col-sm-2
-				li
-					a(href='#') Контакты
-				li
-					a(href='#') Обратная связь
 
 
 	//Bootstrap core JavaScript

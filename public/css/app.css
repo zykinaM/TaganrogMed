@@ -1,5 +1,3 @@
-/* app css stylesheet */
-
 body {
   min-height: 100%;
 }
@@ -54,10 +52,6 @@ body {
   padding: 0;
 }
 
-.input-group {
-  width: 70%
-}
-
 .footer {
   font-size: 12px;
   background-color: #f8f8f8;
@@ -84,10 +78,8 @@ body {
     white-space: normal;
 }
 
-.form_record {
-  background-color:  #87CEFA;
+.row {
+  padding: 10px;
+  margin: 10px
 }
 
-.row {
-  margin: 10px;
-}
