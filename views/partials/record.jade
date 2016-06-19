@@ -12,8 +12,10 @@
 							label.col-sm-12 Специализация: Стоматолог
 							label.col-sm-12 Оценка: 5.0
 							label.col-sm-12 Стаж: 3 года
-							label.col-sm-12 Медицинское учреждение: "БиоРомашка"
-							label.col-sm-12 Стоимость приема: 1000руб
+							label.col-sm-12 Медицинское учреждение: "ФабрикаУлыбок"
+							label.col-sm-12 Стоимость приема от: 800руб
+
+
 		.col-md-6
 			.panel.panel-primary.panel-profile
 				.panel-heading
@@ -23,13 +25,11 @@
 						.form-group
 							label.control-label.col-sm-5 Выбор даты
 							.col-sm-7
-								#datetimepicker1.input-group.date
-									input.form-control(type='text')
-									span.input-group-addon
+								#datetimepicker1.input-group.date(datetimez)
+									input.form-control(type='text', ng-model='dateModel')
+									span.input-group-addon(ng-click='showMyModel()')
 										span.glyphicon.glyphicon-calendar
-
-
-						.form-group
+						.form-group(ng-show='dateModel')
 							label.control-label.col-sm-5 Выбор времени
 							.col-sm-7
 								.radio
@@ -57,14 +57,27 @@
 							.col-sm-7
 								input#phoneNumber.form-control(type='tel', placeholder='8ХХХХХХХХХХХ')
 						.form-group
-							.col-sm-7
-								a.btn.btn-primary(type='submit', value='Записаться',href='#', data-target="#recModal", ata-toggle='modal') Записаться
+							.row
+								.col-sm-5
+									a.btn.btn-primary(ng-click='check_captcha()')
+										Записаться
+								.col-sm-7
+									.row
+										label CAPTCHA
+									.row
+										label#captchaCalc.col-sm-5
+										input#captchaAnswer.col-sm-7
+										label.col-offset-sm-5.col-sm-7(ng-show='captchaError') Неправильно введен ответ
+
+
+
+
 #recModal.modal.fade(tabindex="-1", role="dialog", aria-hidden="true")
 	.modal-dialog
 		.modal-content
 			.modal-header
 				button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
-				h4.modal-title Новер вашей записи ХХХХ
+				h4.modal-title Номер вашей записи 321
 			.modal-body
 				p Пожалуйста сохраните этот номер для подтверждения в регистратуре клиники или отмены записи. 
 				p Подтверждение о записи отправлено вам на почту. 
@@ -86,18 +99,29 @@
 				.form-group
 					label.col-sm-3(for='mark_spec') Оценка специалиста:
 					.col-sm-9
-						input#mark_spec.rating(type='number', min='1', max='5', data-size='xs')
+						input#mark_spec.rating(type='number', min='1', max='5', data-size='xs', value='1')
 				.form-group
 					label.col-sm-3(for='mark_clinic') Оценка клиники:
 					.col-sm-9
-						input#mark_clinic.rating(type='number', min='1', max='5', data-size='xs')
+						input#mark_clinic.rating(type='number', min='1', max='5', data-size='xs', value="1")
 				.form-group
 					label.col-sm-3(for='comment') Комментарии:
 					.col-sm-9
 						textarea#comment.form-control(rows='4', placeholder='Текст комментария...')
 				.form-group
 					.col-sm-4.col-sm-offset-4
-						a.btn.btn-primary(type='submit') Опубликовать
+						a.btn.btn-primary(data-target="#commModal", data-toggle='modal') Опубликовать
+
+#commModal.modal.fade(tabindex="-1", role="dialog", aria-hidden="true")
+	.modal-dialog
+		.modal-content
+			.modal-header
+				button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+				h4.modal-title Отправлено
+			.modal-body
+				p Спасибо, ваш отзыв отправлен на проверку.
+			.modal-footer
+				button.btn.btn-default(type='button', data-dismiss='modal') Закрыть
 
 .container
 	.row
@@ -110,9 +134,21 @@
 			p Оценка специалиста 5.0
 			p Оценка клиники 5.0
 		.panel-body
-			p Все отличненько, я почти не схожу с ума....
-
-
+			p Замечательный хирург, отличная клиника
+	.panel.panel-default.panel-profile
+		.panel-heading
+			p Мария
+			p Оценка специалиста 5.0
+			p Оценка клиники 5.0
+		.panel-body
+			p Спасибо огромное Ивану Ивановичу, помог избавиться от болей в спине
+	.panel.panel-default.panel-profile
+		.panel-heading
+			p Виталий
+			p Оценка специалиста 5.0
+			p Оценка клиники 5.0
+		.panel-body
+			p Хочется выразить огромную благодарность за то, что поставил на ноги
 
 
 

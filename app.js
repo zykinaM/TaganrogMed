@@ -100,6 +100,23 @@ function handle_database(req,res) {
                 res.json({"code" : 100, "status" : "Error in connection database"});
                 return;     
           });
+
+        } else if (table == 'specialisation') {
+            connection.query("select name_spec from specialisation;",function(err,rows){
+              console.log("### spec", rows);
+              connection.release();
+              if(!err && rows.length) {
+                  // res.redirect('/clinic');
+                  res.json(rows);
+              } else {
+                  res.json({'error': true, 'message': 'Something was wrong:', err})
+              }          
+          });
+
+          connection.on('error', function(err) {      
+                res.json({"code" : 100, "status" : "Error in connection database"});
+                return;     
+          }); 
         } else if (false){
 
         } else {

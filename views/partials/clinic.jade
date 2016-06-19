@@ -3,7 +3,7 @@
 		.col-sm-8
 			.input-group
 				span.input-group-addon Поиск
-				input#filter.form-control(type='filter', placeholder='Поиск...')
+				input#filter.form-control(type='filter', placeholder='Поиск...', ng-model="searchText")
 	.row
 		.col-sm-8
 			table.table.table-striped
@@ -16,47 +16,18 @@
 						th Пациент
 						th Телефон
 						th Статус
-				tbody.searchable
+				tbody.searchable(ng-repeat="record in records | filter:searchText")
 					tr
-						td 001
-						td 12/01/2016
-						td 13.30
-						td Иванов И.И. (Стоматолог)
-						td Пупкин
-						td 11111
-						td
-							input(type="checkbox")
-					tr
-						td 345
-						td 12/01/2016
-						td 11.00
-						td Петров И.И. (Кардиолог)
-						td Мария
-						td 22222
-						td
-							input(type="checkbox")
-					tr
-						td 444
-						td 12/01/2016
-						td 20.00
-						td Сидоров И.И. (Окулист)
-						td ымывмва
-						td 44444
-						td
-							input(type="checkbox")
-					tr
-						td 221
-						td 12/01/2016
-						td 10.15
-						td Петечкин И.И. (Массажист)
-						td некто
-						td 66666
+						td {{record.num}}
+						td {{record.date}}
+						td {{record.time}}
+						td {{record.doctor}}
+						td {{record.patient}}
+						td {{record.phone}}
 						td
 							input(type="checkbox")
 		.col-sm-4
-			a.btn.btn-lg.btn-success.btn-block.btn_clinic(type='submit', href='index') 
-				.text_wrap Записать пациента на прием
-			a.btn.btn-lg.btn-info.btn-block.btn_clinic(type='submit', href='registr_clinic') 					
+			a.btn.btn-lg.btn-info.btn-block.btn_clinic(type='submit', href='registration') 			
 				.text_wrap Редактирование общей информации о клинике
-			a.btn.btn-lg.btn-primary.btn-block.btn_clinic(type='submit', href='edit_clinic') 
+			a.btn.btn-lg.btn-primary.btn-block.btn_clinic(type='submit', data-target='#addModal', data-toggle='modal') 
 				.text_wrap Редактирование информации о специалистах

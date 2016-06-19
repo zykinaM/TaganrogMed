@@ -2,10 +2,11 @@
     .jumbotron
       h1 ТаганрогМед
       .input-group.col-sm-8
-        input.form-control(type='text', placeholder='Введите фамилию/специализацию/услугу', autofocus='')
+        input.form-control(type='text', placeholder='Введите фамилию/специализацию/услугу', autofocus='', ng-model='searchValueText')
         span.input-group-btn
           a.btn.btn-default(href='search', type='button') Поиск
 
+ 
 .container
     .row
       .col-sm-8.col-sm-offset-2.text-center
@@ -17,11 +18,35 @@
           .panel-heading
           .panel-body
             img.foto-img.panel-profile-img(src='img/med-ico.png')
-            h5.panel-title Доктор Айболит 
-            p Врач
+            h5.panel-title Иванов И.И. 
+            p Стоматолог
             p Оценка 5.0
             p Стаж 3года
-            p "АфрикаДокторс"
+            p "ФабрикаУлыбок"
+            p Стоимость 800руб
+            a.btn.btn-primary-outline.btn-sm  Подробнее...
+      .col-md-4
+        .panel.panel-default.panel-profile
+          .panel-heading
+          .panel-body
+            img.foto-img.panel-profile-img(src='img/med-ico.png')
+            h5.panel-title Петров П.П. 
+            p Хирург
+            p Оценка 5.0
+            p Стаж 1,5года
+            p "БиоМед"
+            p Стоимость 1500руб
+            a.btn.btn-primary-outline.btn-sm  Подробнее...
+      .col-md-4
+        .panel.panel-default.panel-profile
+          .panel-heading
+          .panel-body
+            img.foto-img.panel-profile-img(src='img/med-ico.png')
+            h5.panel-title Сидоров С.С. 
+            p Окулист
+            p Оценка 4.5
+            p Стаж 10лет
+            p "Здоровое зрение"
             p Стоимость 1000руб
             a.btn.btn-primary-outline.btn-sm  Подробнее...
 .container
@@ -34,16 +59,23 @@
         .panel.panel-default.panel-profile
           .panel-heading
           .panel-body.text-center
-            h5.panel-title Доктор Айболит 
-            p Врач
-            p Анонимно: Все круто и классно 
+            h5.panel-title Петров П.П. 
+            p Хирург
+            p Анонимно: Очень внимательный, консультирует даже в телефонном режиме, дает советы по уходу за ребенком
             a.btn.btn-primary-outline.btn-sm  Все отзывы...
       .col-md-4
         .panel.panel-default.panel-profile
           .panel-heading
           .panel-body.text-center
-            h5.panel-title Карабас Барабас
-            p Стоматолог
-            p Мальвина: Бооооооольно 
+            h5.panel-title Федоров Ф.Ф.
+            p Эндокринолог
+            p Анна: Странный и грубый, ничего по делу так и не сказал 
             a.btn.btn-primary-outline.btn-sm  Все отзывы...
-  
+      .col-md-4
+        .panel.panel-default.panel-profile
+          .panel-heading
+          .panel-body.text-center
+            h5.panel-title Антонов А.А.
+            p Стоматолог
+            p Владимир: Достаточно дорого, но качественно 
+            a.btn.btn-primary-outline.btn-sm  Все отзывы...  

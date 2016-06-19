@@ -2,22 +2,36 @@
 	.jumbotron
 		h1 ТаганрогМед
 		.input-group.col-sm-8
-			input.form-control(type='text', placeholder='Введите фамилию/специализацию/услугу', autofocus='')
+			input.form-control(type='text', placeholder='Введите фамилию/специализацию/услугу', autofocus='', ng-model='searchValue')
 			span.input-group-btn
 				a.btn.btn-default(href='search', type='button') Поиск
 
 .container
 	.row
-		h4 Результаты по поиску @стоматолог\Иванов\Узи@
+		h4 Результаты по поиску: Иванов
 	.row
-		.panel.panel-default.panel-profile
-			.panel-heading
-			.panel-body
-				img.foto-img.panel-profile-img(src='img/med-ico.png')
-				h5.panel-title Доктор Айболит 
-				p Врач
-				p Оценка 5.0
-				p Стаж 3года
-				p "АфрикаДокторс"
-				p Стоимость 1000руб
-				a.btn.btn-primary-outline.btn-sm(href='record')  Подробнее...
+		.col-md-4
+			.panel.panel-default.panel-profile
+				.panel-heading
+				.panel-body
+					img.foto-img.panel-profile-img(src='img/med-ico.png')
+					h5.panel-title Иванов И.И. 
+					p Стоматолог
+					p Оценка 5.0
+					p Стаж 3года
+					p "ФабрикаУлыбок"
+					p Стоимость 800руб
+					a.btn.btn-primary-outline.btn-sm(href='record')  Подробнее...
+		.col-md-4
+			.panel.panel-default.panel-profile
+				.panel-heading
+				.panel-body
+					img.foto-img.panel-profile-img(src='img/med-ico.png')
+					h5.panel-title Иванова М.Р. 
+					p Массажист
+					p Оценка 4.3
+					p Стаж 1год
+					p "ИП Иванова"
+					p Стоимость 500руб
+					a.btn.btn-primary-outline.btn-sm(href='record')  Подробнее...
+
